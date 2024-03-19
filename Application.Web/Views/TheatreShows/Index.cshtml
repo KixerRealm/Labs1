@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Application.Web.Models.TheatreShow>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<div class="container">
+    <div class="row">
+@foreach (var item in Model)
+{
+
+
+    
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="<img alt="Card image cap" />
+                <div class="card-body">
+                        <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title) </h5>
+                        <h5 class="card-body"> @Html.DisplayFor(modelItem => item.ShowDate) </h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+   
+}
+    </div>
+</div>
+
